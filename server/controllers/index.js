@@ -8,7 +8,7 @@ const { Cat, Dog } = models;
 const hostIndex = async (req, res) => {
   let name = 'unknown';
 
-  try {
+  try { 
     const doc = await Cat.findOne({}, {}, { sort: { createdDate: 'descending' } }).lean().exec();
 
     // If we got a cat back, store its name
