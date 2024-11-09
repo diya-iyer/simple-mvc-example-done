@@ -1,0 +1,24 @@
+<!-- views/page4.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog List</title>
+</head>
+<body>
+    
+    <h1>List of Dogs</h1>
+    <a href="/page1">Page 1</a>
+  <a href="/page2">Page 2</a>
+  <a href="/page3">Page 3</a>
+    <ul>
+        {{#each dogs}}
+            <li>{{name}} - Breed: {{breed}} - Age: {{age}}</li>
+        {{else}}
+            <li>No dogs found.</li>
+        {{/each}}
+    </ul>
+    <a href="/">Return to Home</a>
+</body>
+</html>

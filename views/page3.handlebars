@@ -1,18 +1,49 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <!-- passed in variables in handlebars are surrounded by two curly braces like the following
-       Any variable you pass into res.render will be available by name in the template through
-       the curly braces
-  -->
   <title>{{title}}</title>
 </head>
 <body>
   <h1>Welcome to page 3</h1>
   
-  <!-- links or URLs are always GET resources as they are getting (retrieving) a resource -->
+  <!-- Navigation Links -->
   <a href="/">Home</a>
   <a href="/page1">Page 1</a>
   <a href="/page2">Page 2</a>
+  <a href="/page4">Page 4</a>
+
+  <h2>Create a New Dog</h2>
+  <!-- Form for creating a new Dog -->
+  <form action="/dogs/create" method="POST">
+    <label for="name">Dog Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter Dog's Name" required />
+    
+    <label for="breed">Dog Breed:</label>
+    <input type="text" id="breed" name="breed" placeholder="Enter Dog's Breed" required />
+    
+    <label for="age">Dog Age:</label>
+    <input type="number" id="age" name="age" placeholder="Enter Dog's Age" required min="0" />
+    
+    <button type="submit">Add Dog</button>
+  </form>
+
+  <h2>Lookup and Increase Dog Age</h2>
+  <!-- Form for looking up a Dog by name -->
+  <form action="/dogs/increaseAge" method="POST">
+    <label for="lookupName">Dog Name:</label>
+    <input type="text" id="lookupName" name="name" placeholder="Enter Dog's Name" required />
+    
+    <button type="submit">Increase Age</button>
+  </form>
+
+  <!-- Place to display messages or errors related to the forms, you can style this as needed -->
+  {{#if errorMessage}}
+    <div style="color: red;">{{errorMessage}}</div>
+  {{/if}}
+
+  {{#if successMessage}}
+    <div style="color: green;">{{successMessage}}</div>
+  {{/if}}
+
 </body>
 </html>
